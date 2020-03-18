@@ -5,20 +5,46 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 import { BasicComponent } from './basic/basic.component';
-import { AdvacedComponent } from './advaced/advaced.component';
+import { AdvancedComponent } from './advanced/advanced.component';
 import { ContainedComponent } from './contained/contained.component';
+import { RouterModule, Routes } from '@angular/router';
+
+const animationRoutes: Routes = [
+  {
+    path: 'animation-home',
+    component: HomeComponent
+  },
+  {
+    path: 'animation-basics',
+    component: BasicComponent
+  },
+  {
+    path: 'animation-contained',
+    component: ContainedComponent
+  },
+  {
+    path: 'animation-advanced',
+    component: AdvancedComponent
+  },
+  {
+    path: '',
+    redirectTo: '/animation-home',
+    pathMatch: 'full'
+  }
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     BasicComponent,
-    AdvacedComponent,
+    AdvancedComponent,
     ContainedComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    RouterModule.forRoot(animationRoutes),
   ],
   providers: [],
   bootstrap: [AppComponent]
